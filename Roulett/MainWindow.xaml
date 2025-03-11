@@ -1,33 +1,23 @@
 ﻿<Window x:Class="Roulett.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Roulett"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="795">
+        Title="MainWindow" Height="600" Width="900" Background="#103C1B">
 
-    <Grid RenderTransformOrigin="0.501,0.568">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <!-- Kép és más elemek rugalmas mérete -->
             <RowDefinition Height="Auto" />
-            <!-- Kép és más statikus elemek -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <!-- Kép teljes szélessége -->
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
-            <!-- Gombok szélessége -->
         </Grid.ColumnDefinitions>
 
-        <!-- Kép (Rulett Kerék) -->
-        <Border Margin="10,59,10,15" Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="3" BorderBrush="Black" CornerRadius="20" Background="SaddleBrown">
+        <!-- Rulettkerék háttér -->
+        <Border Margin="10" BorderThickness="5" BorderBrush="Gold" CornerRadius="20" Background="#2D2D2D">
             <Image Name="circle" Source="C:\Users\gozon.szabolcs\source\repos\Roulett\Roulett\bin\Debug\kerek.png" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" 
-                   MaxHeight="800" MaxWidth="800" RenderTransformOrigin="0.5,0.5">
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Width="350" Height="350" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <RotateTransform x:Name="rotateTransform" Angle="1"/>
                 </Image.RenderTransform>
@@ -35,25 +25,23 @@
         </Border>
 
         <!-- Nyíl -->
-        <Image Name="arrow" 
-       Source="C:\Users\gozon.szabolcs\source\repos\Roulett\Roulett\bin\Debug\arrow.png" 
-       HorizontalAlignment="Center" 
-       VerticalAlignment="Top" 
-       Height="52" 
-       Width="45" 
-       MaxHeight="50" 
-       MaxWidth="50"
-       Margin="90,108,81,0" 
-       Grid.Column="1" />
+        <Image Name="arrow" Source="C:\Users\gozon.szabolcs\source\repos\Roulett\Roulett\bin\Debug\arrow.png" 
+               Width="40" Height="60" 
+               HorizontalAlignment="Center" VerticalAlignment="Top" Margin="432,163,420,0" />
 
-        <!-- Pénz kezelő szövegek -->
-        <TextBlock Name="HouseMoney" Text="House's Money:" Grid.ColumnSpan="3" Margin="145,10,139,365" FontSize="30" FontWeight="Bold"/>
+        <!-- Pénz kijelzés -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="20" VerticalAlignment="Top">
+            <TextBlock Text="House's Money:" Foreground="White" FontSize="20" FontWeight="Bold" />
+            <TextBlock Name="HouseMoney" Foreground="Gold" FontSize="24" />
+            <TextBlock Name="usernameLabel" Text="Username:" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,10,0,0" />
+            <TextBlock Name="PlayerMoney" Foreground="Gold" FontSize="24" />
+        </StackPanel>
 
-        <!-- Fogadási gombok és szövegek -->
-        <Grid Grid.Column="3" Grid.RowSpan="2" Margin="0,0,0,-0.5">
+        <!-- Fogadási gombok -->
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -64,24 +52,24 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Name="usernameLabel" Text="Username:" Margin="0,10,20,30" Grid.Row="0"/>
-            <TextBlock Name="PlayerMoney" Text="Money:" Margin="0,32,36,8" Grid.Row="0"/>
-
-            <Button Name="z" Click="BetOnZeroButton_Click" Grid.Row="1" Grid.ColumnSpan="2" Background="LimeGreen" FontSize="30" Foreground="White" Height="60" Width="140">0</Button>
-            <Button Name="r" Click="BetOnRedButton_Click" Grid.Row="2" Grid.ColumnSpan="2" Background="Red" FontSize="30" Height="60" Width="140" Margin="0,0,0,5"></Button>
-            <Button Name="b" Click="BetOnBlackButton_Click" Grid.Row="2" Grid.ColumnSpan="2" Background="Black" FontSize="30" Height="60" Width="140" Margin="0,66,0,4" Grid.RowSpan="2"></Button>
-            <Button Name="ee" Click="BetOnEvenButton_Click" Grid.Row="4" Grid.ColumnSpan="2" FontSize="30" Height="60" Width="140" Margin="0,0,0,11">Even</Button>
-            <Button Name="o" Click="BetOnOddButton_Click" Grid.Row="4" Grid.ColumnSpan="2" FontSize="30" Margin="0,66,0,-3" Grid.RowSpan="2"  Height="60" Width="140">Odd</Button>
-            <Button  Click="CloseButton_Click" Grid.Row="5" FontSize="10" Margin="46,62,10,-36">Close</Button>
-            <!-- Fogadási szövegek -->
+            <Button Name="z" Click="BetOnZeroButton_Click" Background="LimeGreen" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="1" Grid.ColumnSpan="2">0</Button>
+            <Button Name="r" Click="BetOnRedButton_Click" Background="Red" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="2" Grid.ColumnSpan="2" />
+            <Button Name="b" Click="BetOnBlackButton_Click" Background="Black" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="3" Grid.ColumnSpan="2" />
+            <Button Name="ee" Click="BetOnEvenButton_Click" Background="#444" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="4" Grid.ColumnSpan="2">Even</Button>
+            <Button Name="o" Click="BetOnOddButton_Click" Background="#444" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="5" Grid.ColumnSpan="2">Odd</Button>
             <TextBlock Name="ZeroBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,1,0,0" FontSize="16" Grid.Row="1"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="RedBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,4,0,0" FontSize="16" Grid.Row="2"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="BlackBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,0,0,0" FontSize="16" Grid.Row="3" Foreground="White"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="EvenBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,4,0,0" FontSize="16" Grid.Row="4"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="OddBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,0,0,0" FontSize="16" Grid.Row="5" Height="50" Width="50">BET:</TextBlock>
+            <Button Click="CloseButton_Click" FontSize="12" Background="DarkRed" Foreground="White" Width="100" Height="40" Grid.Row="6">Close</Button>
+        
         </Grid>
 
-        <!-- Indítás gomb -->
-        <Button x:Name="ButtonStart" Content="Start Rotation" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="65,0,56,156" Click="Button_Click" Grid.Column="1" Height="50" Width="95"/>
+        <!-- Start gomb -->
+        <Button x:Name="ButtonStart" Content="Start Rotation" Click="Button_Click" 
+                Background="Gold" Foreground="Black" FontSize="20" FontWeight="Bold" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Height="50" Margin="369,0,373,54" />
+        
     </Grid>
 </Window>
