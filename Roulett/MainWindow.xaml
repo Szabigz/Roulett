@@ -40,7 +40,8 @@
         <!-- Fogadási gombok -->
         <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="83.5" />
+                <ColumnDefinition Width="16.5"/>
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -52,24 +53,24 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Name="z" Click="BetOnZeroButton_Click" Background="LimeGreen" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="1" Grid.ColumnSpan="2">0</Button>
-            <Button Name="r" Click="BetOnRedButton_Click" Background="Red" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="2" Grid.ColumnSpan="2" />
+            <Button Name="z" Click="BetOnZeroButton_Click" Background="LimeGreen" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,1">0</Button>
+            <Button Name="r" Click="BetOnRedButton_Click" Background="Red" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,2" />
             <Button Name="b" Click="BetOnBlackButton_Click" Background="Black" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="3" Grid.ColumnSpan="2" />
-            <Button Name="ee" Click="BetOnEvenButton_Click" Background="#444" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="4" Grid.ColumnSpan="2">Even</Button>
+            <Button Name="ee" Click="BetOnEvenButton_Click" Background="#444" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,2">Even</Button>
             <Button Name="o" Click="BetOnOddButton_Click" Background="#444" Foreground="White" FontSize="18" Width="100" Height="50" Grid.Row="5" Grid.ColumnSpan="2">Odd</Button>
             <TextBlock Name="ZeroBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,1,0,0" FontSize="16" Grid.Row="1"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="RedBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,4,0,0" FontSize="16" Grid.Row="2"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="BlackBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,0,0,0" FontSize="16" Grid.Row="3" Foreground="White"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="EvenBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,4,0,0" FontSize="16" Grid.Row="4"  Height="50" Width="50">BET:</TextBlock>
             <TextBlock Name="OddBetAmount" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,0,0,0" FontSize="16" Grid.Row="5" Height="50" Width="50">BET:</TextBlock>
-            <Button Click="CloseButton_Click" FontSize="12" Background="DarkRed" Foreground="White" Width="100" Height="40" Grid.Row="6">Close</Button>
-        
+            <Button Click="CloseButton_Click" FontSize="12" Background="DarkRed" Foreground="White" Width="100" Height="40" Margin="-746,-264,730,224">Close</Button>
+
         </Grid>
 
         <!-- Start gomb -->
         <Button x:Name="ButtonStart" Content="Start Rotation" Click="Button_Click" 
                 Background="Gold" Foreground="Black" FontSize="20" FontWeight="Bold" 
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Height="50" Margin="369,0,373,54" />
-        
+
     </Grid>
 </Window>
